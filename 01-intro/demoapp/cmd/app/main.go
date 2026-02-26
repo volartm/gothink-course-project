@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	"go-core-4/01-intro/demoapp/pkg/stringutils"
+	"gothink-course-project/01-intro/demoapp/pkg/stringutils"
 )
 
 func main() {
@@ -14,6 +14,7 @@ func main() {
 				s := r.URL.Query()["s"]
 				if len(s) == 0 {
 					http.Error(w, "bad query", http.StatusBadRequest)
+					return
 				}
 
 				rev := stringutils.Rev(s[0])
